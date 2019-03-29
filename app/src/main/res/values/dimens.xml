@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_padding">8dp</dimen>
+    <dimen name="bit_text">40sp</dimen>
+    <dimen name="midium_text">25sp</dimen>
+    <dimen name="big_m_text">30dp</dimen>
+    <dimen name="image_height">100dp</dimen>
+</resources>
