@@ -26,13 +26,13 @@ import java.net.URLConnection;
 
 public class PokeActivity extends AppCompatActivity {
 
-    private TextView name_poke, id_poke, type_poke, weight_poke;
+    private TextView name_poke, id_poke, type_poke, weight_poke, height_poke;
     private ImageView image_poke;
     private URL link_poke;
     private JsonObject pokeObject, typeObject;
     private JsonParser pokeParser = new JsonParser();
     private JsonArray pokeArray, types;
-    private String name, type, id, weight, image;
+    private String name, type, id, weight, height, image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +77,7 @@ public class PokeActivity extends AppCompatActivity {
                 typeObject = typeElement.getAsJsonObject();
                 type = typeObject.get("type").getAsJsonObject().get("name").getAsString();
                 weight = pokeObject.get("weight").getAsString();
+                height = pokeObject.get("height").getAsString();
                 if(pokeObject.get("sprites").getAsJsonObject().get("front_default") == null){
                     image = pokeObject.get("sprites").getAsJsonObject().get("front_female").toString();
                 }
@@ -88,6 +89,7 @@ public class PokeActivity extends AppCompatActivity {
             id_poke.setText(id);
             type_poke.setText(type);
             weight_poke.setText(weight);
+            height_poke.setText(height);
             new GetImageUrl().execute(image);
         }
     }
@@ -122,6 +124,7 @@ public class PokeActivity extends AppCompatActivity {
         type_poke = findViewById(R.id.typePoke);
         weight_poke = findViewById(R.id.weightPoke);
         image_poke = findViewById(R.id.imagePoke);
+        height_poke = findViewById(R.id.heightPoke);
     }
 }
 
